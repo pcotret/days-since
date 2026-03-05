@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Days Since</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  font-family:Arial, sans-serif;
+  background:#111;
+  color:white;
+}
+
+#days{
+  font-size:120px;
+  font-weight:bold;
+}
+
+#label{
+  font-size:32px;
+  opacity:0.8;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="days">0</div>
+<div id="label">since my_event</div>
+
+<script>
+const startDate = new Date("2024-07-04") // change this
+const eventName = "My event" // change this
+
+document.getElementById("label").textContent = "since " + eventName
+
+function update(){
+  const now = new Date()
+  const diff = now - startDate
+  const days = Math.floor(diff / (1000*60*60*24))
+  document.getElementById("days").textContent = days
+}
+
+update()
+setInterval(update, 60000)
+</script>
+
+</body>
+</html>
